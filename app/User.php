@@ -101,9 +101,8 @@ class User extends Authenticatable
          
         $exist = $this->is_favorite($micropostId);
       
-        $its = $this->id == $micropostId;
-    
-        if ($exist || $its) {
+        
+        if ($exist) {
             // 既にフォローしていれば何もしない
             return false;
         } else {
@@ -118,9 +117,9 @@ class User extends Authenticatable
        
         $exist = $this->is_favorite($micropostId);
        
-        $its = $this->id == $micropostId;
+        
     
-        if ($exist && !$its) {
+        if ($exist) {
            
             $this->favorites()->detach($micropostId);
             return true;
