@@ -15,7 +15,9 @@
                             {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
                         {!! Form::close() !!}
                     @endif
+                    
                 </div>
+                <p>@include('post_fav.fav_button', ['micropost' => $micropost])</p>
             </div>
         </li>
     @endforeach
