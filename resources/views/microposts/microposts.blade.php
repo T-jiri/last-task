@@ -9,15 +9,15 @@
                 <div>
                     <p class="mb-0">{!! nl2br(e($micropost->content)) !!}</p>
                 </div>
-                 <div>
+                 <div style ="display: flex; ">
                     @if (Auth::id() == $micropost->user_id)
                         {!! Form::open(['route' => ['microposts.destroy', $micropost->id], 'method' => 'delete']) !!}
                             {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
                         {!! Form::close() !!}
                     @endif
-                    
+                     <p style ="margin-left: 10px;">@include('post_fav.fav_button', ['micropost' => $micropost])</p>
                 </div>
-                <p>@include('post_fav.fav_button', ['micropost' => $micropost])</p>
+               
             </div>
         </li>
     @endforeach
